@@ -135,6 +135,8 @@ Demo演示
 	* 其他浏览器暂无测试
 
 * 测试前确认已安装MySQL数据库
+* 启动数据库服务：`/etc/init.d/mysql restart`
+* 以`wangtao`这个用户名进入数据库：`sudo mysql -u wangtao -p`
 
     ```C++
     // 建立yourdb库
@@ -149,6 +151,15 @@ Demo演示
 
     // 添加数据
     INSERT INTO user(username, passwd) VALUES('name', 'passwd');
+
+    //显示全部的用户
+    select user,host from mysql.user;
+
+    //显示全部的数据库
+    show databases;
+
+    //添加一个wangtao用户,密码为1024
+    CREATE USER 'wangtao'@'localhost' IDENTIFIED BY '1024';
     ```
 
 * 修改main.cpp中的数据库初始化信息

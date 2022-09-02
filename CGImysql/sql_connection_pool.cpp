@@ -39,14 +39,20 @@ void connection_pool::init(string url, string User, string PassWord, string DBNa
 
 		if (con == NULL)
 		{
-			LOG_ERROR("MySQL Error");
+			LOG_ERROR("MySQL Error11111111");
 			exit(1);
 		}
 		con = mysql_real_connect(con, url.c_str(), User.c_str(), PassWord.c_str(), DBName.c_str(), Port, NULL, 0);
 
 		if (con == NULL)
 		{
-			LOG_ERROR("MySQL Error");
+			LOG_ERROR("MySQL Error222222222");
+			LOG_ERROR("url.c_str()[%s]", url.c_str());
+			LOG_ERROR("User.c_str()[%s]", User.c_str());
+			LOG_ERROR("PassWord.c_str()[%s]", PassWord.c_str());
+			LOG_ERROR("DBName.c_str()[%s]", DBName.c_str());
+			LOG_ERROR("Port[%d]\n", Port);
+
 			exit(1);
 		}
 		connList.push_back(con);
